@@ -34,7 +34,17 @@ public class PatientDAOImpl implements  PatientDAO{
             System.out.println("Error while inserting  Patient "+e.getMessage());
         }
     }
+    @Override
+    public void addPatient(Connection conn, Patient patient) throws Exception {
+        String insertQuery = "INSERT INTO patient (id, name, disease) VALUES (?, ?, ?)";
 
+        try (PreparedStatement ps = conn.prepareStatement(insertQuery)) {
+            ps.setInt(1, patient.getId());
+            ps.setString(2, patient.getName());
+            ps.setString(3, patient.getDisease());
+            ps.executeUpdate();
+        }
+    }
     @Override
     public Patient getPatientById(int id) {
         String sql = "SELECT * FROM patient WHERE id= ?";

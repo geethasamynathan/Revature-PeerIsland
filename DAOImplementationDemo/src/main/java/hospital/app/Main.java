@@ -1,13 +1,17 @@
 package hospital.app;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
+import hospital.model.Appointment;
+import hospital.model.Billing;
 import hospital.model.Patient;
+import hospital.service.HospitalService;
 import hospital.service.PatientService;
 
 public class Main {
     private static final PatientService service=new PatientService();
-
+    private static final HospitalService visitService = new HospitalService();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int choice;
@@ -22,7 +26,8 @@ public class Main {
             System.out.println("6. Search Patient By Name");
             System.out.println("7. Search Patient By Disease");
             System.out.println("8. Get Patient Count By Disease");
-            System.out.println("9. Exit");
+            System.out.println("9. Register Full Patient Visit");
+            System.out.println("10. Exit");
             System.out.print("Enter your choice: ");
 
             choice = sc.nextInt();
@@ -37,13 +42,39 @@ public class Main {
                 case 6 -> searchByName(sc);
                 case 7 -> searchByDisease(sc);
                 case 8 -> getPatientCountByDisease(sc);
-                case 9 -> System.out.println("Exiting application...");
+                case 9 -> registerFullVisit(sc);
+                case 10 -> System.out.println("Exiting application...");
                 default -> System.out.println("Invalid choice. Please try again.");
             }
 
-        } while (choice != 9);
+        } while (choice !=10);
 
         sc.close();
+    }
+
+    private static void registerFullVisit(Scanner sc) {
+        System.out.print("Enter Patient ID: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Patient Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Disease: ");
+        String disease = sc.nextLine();
+
+        System.out.print("Enter Doctor Name: ");
+        String doctorName = sc.nextLine();
+
+        System.out.print("Enter Bill Amount: ");
+        double amount = sc.nextDouble();
+        sc.nextLine();
+
+        Patient patient = new Patient(id, name, disease);
+        Appointment appointment = new Appointment(id, doctorName, LocalDate.now());
+        Billing billing = new Billing(id, amount, "PENDING");
+
+        visitService.registerFullVisit(patient, appointment, billing);
     }
 private static void getPatientCountByDisease(Scanner sc){
     System.out.print("Enter Disease: ");
