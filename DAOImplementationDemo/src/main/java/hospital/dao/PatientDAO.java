@@ -12,5 +12,5 @@ public interface PatientDAO {
     List<Patient> searchPatientByDisease(String disease);
     boolean updatePatient(Patient patient);
     boolean deletePatient(int id);
-
+    int getPatientCountByDisease(String disease);
 }

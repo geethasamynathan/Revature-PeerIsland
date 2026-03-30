@@ -148,6 +148,26 @@ public class PatientDAOImpl implements  PatientDAO{
             return false;
         }
 
+
+   public int getPatientCountByDisease(String disease)
+   {
+       int count=0;
+       String sql="{call GetPatientCountByDisease(?,?)}";
+       try(Connection conn=DBConection.getConnection();
+       CallableStatement cs=conn.prepareCall(sql))
+       {
+           cs.setString(1,disease); //In parameter
+           cs.registerOutParameter(2,Types.INTEGER); //OUT paramater
+
+           cs.execute();
+           count=cs.getInt(2);
+       }catch(Exception e)
+       {
+           e.printStackTrace();
+       }
+       return count;
+   }
+
         Patient extractPatient (ResultSet rs) throws SQLException {
             return new Patient(
                     rs.getInt("id"),

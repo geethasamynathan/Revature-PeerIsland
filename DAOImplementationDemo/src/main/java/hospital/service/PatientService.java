@@ -68,6 +68,15 @@ public class PatientService {
             }
 
         }
+
+        public int getPatientCountByDisease(String disease){
+            if(disease== null || disease.trim().isEmpty())
+            {
+                System.out.println("Disease cannot be Empty");
+                return 0;
+            }
+            return  patientDAO.getPatientCountByDisease(disease);
+        }
     }
 
 

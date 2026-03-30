@@ -21,7 +21,8 @@ public class Main {
             System.out.println("5. Delete Patient");
             System.out.println("6. Search Patient By Name");
             System.out.println("7. Search Patient By Disease");
-            System.out.println("8. Exit");
+            System.out.println("8. Get Patient Count By Disease");
+            System.out.println("9. Exit");
             System.out.print("Enter your choice: ");
 
             choice = sc.nextInt();
@@ -35,13 +36,21 @@ public class Main {
                 case 5 -> deletePatient(sc);
                 case 6 -> searchByName(sc);
                 case 7 -> searchByDisease(sc);
-                case 8 -> System.out.println("Exiting application...");
+                case 8 -> getPatientCountByDisease(sc);
+                case 9 -> System.out.println("Exiting application...");
                 default -> System.out.println("Invalid choice. Please try again.");
             }
 
         } while (choice != 9);
 
         sc.close();
+    }
+private static void getPatientCountByDisease(Scanner sc){
+    System.out.print("Enter Disease: ");
+    String disease = sc.nextLine();
+
+    int count=service.getPatientCountByDisease(disease);
+    System.out.println("Number of patients with the Disease "+count);
     }
 
     private static void addPatient(Scanner sc) {
