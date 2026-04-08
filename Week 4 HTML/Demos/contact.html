@@ -1,0 +1,112 @@
+<!DOCTYPE <html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nivedha Infotec Home page</title>
+  </head>
+  <body>
+    <header>
+      <h1>Nivedha Infotec (Excellence in Corporate Training)</h1>
+      <p>Learn all Full Stack development, AI, Cloud Technologies.</p>
+    </header>
+
+    <nav>
+      <a href="index.html">Home</a> | <a href="about.html">About</a> |
+      <a href="courses.html">Course</a> |
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+      <section>
+        <h2>Enquiry Form</h2>
+
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Student Details</legend>
+            <label for="name">Full name: </label><br />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter you full name"
+              required
+            />
+            <br /><br />
+
+            <label for="email">Full name: </label><br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+            <br /><br />
+
+            <label for="phone">Mobile: </label><br />
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Enter your mobile number"
+            />
+            <br /><br />
+
+            <label for="dob">Full name: </label><br />
+            <input type="date" id="dob" name="dob" /> <br /><br />
+
+            <label for="course">Select Course : </label><br />
+            <select id="course" name="course">
+              <option value="html">HTML 5</option>
+              <option value="java">Java Full stack</option>
+              <option value="python">Python with AI</option></select
+            ><br /><br />
+
+            <label>Preferred Batch :</label><br />
+            <input type="radio" id="weekday" name="batch" value="weekday" />
+            <label for="weekday">Weekday</label><br /><br />
+
+            <input type="radio" id="weekend" name="batch" value="weekend" />
+            <label for="weekend">Weekend</label>
+
+            <label>Faciltities Needed :</label><br />
+            <input
+              type="checkbox"
+              id="recording"
+              name="facility"
+              value="recording"
+            />
+            <label for="recording">class Recording</label>
+
+            <input
+              type="checkbox"
+              id="placement"
+              name="facility"
+              value="placement"
+            />
+            <label for="placement">Placement Support</label><br /><br />
+
+            <label for="city">City :</label><br />
+            <input list="cities" id="city" name="city" />
+            <datalist id="cities">
+              <option value="Chennai"></option>
+              <option value="Coimbatore"></option>
+              <option value="Bangalore"></option>
+              <option value="Chandigar"></option>
+              <option value="Mumbai"></option>
+              <option value="Mangalore"></option></datalist
+            ><br /><br />
+
+            <button type="submit">Submit</button>
+            <button type="button">Cancel</button>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Nivedha Infotec , Training Partners.All rights reserved</p>
+    </footer>
+  </body>
+</html>
