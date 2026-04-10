@@ -1,0 +1,27 @@
+<head>
+  <body>
+    <table border="1" id="empTable">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+      </tr>
+    </table>
+
+    <script>
+      let employees = [
+        { id: 101, name: "Geetha", department: "Development" },
+        { id: 102, name: "Anaya", department: "Admin" },
+        { id: 103, name: "Deekshita", department: "Transport" },
+        { id: 104, name: "Brundharika", department: "Finance" },
+      ];
+      let table = document.getElementById("empTable");
+      employees.forEach(function (employee) {
+        let row = table.insertRow();
+        row.insertCell(0).innerHTML = employee.id;
+        row.insertCell(1).innerHTML = employee.name;
+        row.insertCell(2).innerHTML = employee.department;
+      });
+    </script>
+  </body>
+</head>

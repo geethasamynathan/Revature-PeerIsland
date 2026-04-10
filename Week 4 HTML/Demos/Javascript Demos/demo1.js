@@ -122,31 +122,38 @@ console.log(names.slice(1, 3));
 // console.log(names);
 
 //splice ->Addnew value (index,0,"new value")
+console.log("before splice(1, 0, 'Tina') ");
+console.log(names);
+
 names.splice(1, 0, "Tina");
+console.log("After splice(1, 0, 'Tina') ");
 console.log(names);
 
 //splice ->Replace value (index,1,"new value")
-names.splice(1, 1, "Harish");
+console.log("before splice(1, 1, 'Harish') ");
+
+names.splice(1, 2, "Harish");
+console.log("After splice(1, 1, 'Harish') ");
 console.log(names);
 
-//reverse
-names.reverse();
-console.log(names);
+// //reverse
+// names.reverse();
+// console.log(names);
 
-//sort
-names.sort();
-console.log(names);
+// //sort
+// names.sort();
+// console.log(names);
 
-let numbers = [100, 25, 5, 78];
-console.log(numbers);
-numbers.sort();
-console.log(numbers);
+// let numbers = [100, 25, 5, 78];
+// console.log(numbers);
+// numbers.sort();
+// console.log(numbers);
 
-numbers.sort(function (a, b) {
-  return a - b;
-});
+// numbers.sort(function (a, b) {
+//   return a - b;
+// });
 
-console.log(numbers);
+// console.log(numbers);
 
 //map
 
@@ -190,9 +197,9 @@ console.log(numbers);
 
 //reduce
 
-let nums = [10, 20, 30, 40];
-let total = nums.reduce(function (sum, n) {
-  return sum + n;
-}, 0);
+// let nums = [10, 20, 30, 40];
+// let total = nums.reduce(function (sum, n) {
+//   return sum + n;
+// }, 0);
 
-console.log(total);
+// console.log(total);

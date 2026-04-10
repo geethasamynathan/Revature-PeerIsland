@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <style>
+      table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: 20px auto;
+      }
+
+      th,
+      td {
+        border: 1px solid gray;
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background: #222;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="productTable">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Variants</th>
+        <th>Stock</th>
+      </tr>
+    </table>
+    <script>
+      let products = [
+        {
+          id: 1,
+          name: "Laptop",
+          price: 55000,
+          category: {
+            id: 101,
+            name: "Electronics",
+          },
+          variants: [
+            { color: "Black", ram: "8GB" },
+            { color: "Silver", ram: "16GB" },
+          ],
+          stock: {
+            available: true,
+            quantity: 15,
+          },
+        },
+        {
+          id: 2,
+          name: "Mobile",
+          price: 25000,
+          category: {
+            id: 102,
+            name: "Smartphones",
+          },
+          variants: [
+            { color: "Blue", ram: "6GB" },
+            { color: "Black", ram: "8GB" },
+          ],
+          stock: {
+            available: false,
+            quantity: 30,
+          },
+        },
+      ];
+
+      let table = document.getElementById("productTable");
+      products.forEach(function (product) {
+        let row = table.insertRow();
+
+        row.insertCell(0).innerHTML = product.id;
+        row.insertCell(1).innerHTML = product.name;
+        row.insertCell(2).innerHTML = product.price;
+
+        row.insertCell(3).innerHTML = product.category.name;
+
+        let variantText = product.variants
+          .map((v) => v.color + " - " + v.ram)
+          .join("<br>");
+        row.insertCell(4).innerHTML = variantText;
+        row.insertCell(5).innerHTML = product.stock.available
+          ? "Available (" + product.stock.quantity + ")"
+          : "Out of Stock";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<!doctype html>
+<body>
+  <button onclick="showScope()">Show</button>
+  <p id="p1"></p>
+  <script>
+    let globalar = " I am global";
+
+    function showScope() {
+      let localVar = "I am local variable";
+      alert(globalar + " |" + localVar);
+    }
+    console.log(localVar);
+    document.getElementById("p1").innerText = localVar;
+  </script>
+</body>

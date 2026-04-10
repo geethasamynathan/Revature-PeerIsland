@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <div class="card">
+        <h1> Training courses by technology </h1>
+        <p> Select a technology stack to see available real world courses .</p>
+
+        <select id="techDropdown">
+            <option value=""> -- Select Technology --</option>
+            <option value="java">Java Full Stack </option>
+            <option value="python">Python Full Stack </option>
+            <option value="frontend">Frontend </option>
+        </select>
+
+        <ul id="courseList"></ul>
+
+        <script>
+
+            const courses={
+                java:[
+                    "Core java + OOPs",
+                    "Spring boot REST API",
+                    "Hibernate +JPA",
+                    "React with Java Backend",
+                    "E-Commerce Real Project"
+                ],
+                python:[
+                    "Python Basics",
+                    "Django wb development",
+                "FastAPI Services",
+            "MySQL with Python",
+        "AI Resume Screening Project"
+         ],
+         frontend:[
+            "HTML5 REal website",
+            "CSS3, Responsive Layout",
+            "Javascript DOM Projects",
+            "REact with Admin Dashboard"
+         ]
+            };
+
+            const dropdown=document.getElementById("techDropdown");
+            const courseList=document.getElementById("courseList");
+
+            dropdown.addEventListener("change",function(){
+                const selectedTech=this.value;
+                courseList.innerHTML="";
+
+                if(!selectedTech)return;
+
+                courses[selectedTech].forEach(course =>{
+                    const li=document.createElement("li");
+                    li.innerText=course;
+                    courseList.appendChild(li);
+                });
+            });
+            </script>
+  </body>
+</html>

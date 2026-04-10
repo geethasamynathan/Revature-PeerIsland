@@ -1,0 +1,32 @@
+<!-- <html>
+    <html>
+  <body>
+    <h2 id="msg" style="display: none">Welcome to Javascript</h2>
+    <button onclick="showText()">Show</button>
+
+    <script>
+      function showText() {
+        document.getElementById("msg").style.display = "block";
+      }
+    </script>
+  </body>
+</html> -->
+
+  <body>
+    <h2 id="msg">Toggle this text</h2>
+    <button onclick="toggleText()">Toggle</button>
+
+    <script>
+      function toggleText() {
+
+        let text=document.getElementById("msg");
+        if(text.style.display==="none"){
+            text.style.display="block";
+        }else{
+text.style.display="none";
+        }
+       
+      }
+    </script>
+  </body>
+</html>
